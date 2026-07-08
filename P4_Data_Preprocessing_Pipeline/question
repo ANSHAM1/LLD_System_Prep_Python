@@ -1,0 +1,390 @@
+"""
+===========================================================
+Day 1 - AI Engineering Track
+Difficulty : 8.8/10
+Estimated Time : 3-5 Hours
+
+Problem:
+Dataset Cleaning & Training Pipeline
+===========================================================
+
+Background
+
+You have joined an AI startup.
+
+The company collected a huge amount of customer reviews for training an
+LLM-powered sentiment analysis model.
+
+Unfortunately, the dataset is messy.
+
+Before the ML team can train the model, they need you to clean,
+validate, normalize and prepare the dataset.
+
+Your task is to build a reusable data-cleaning pipeline.
+
+-----------------------------------------------------------
+Dataset
+
+Use HuggingFace Datasets (v5 compatible)
+
+from datasets import load_dataset
+
+dataset = load_dataset(
+    "dair-ai/emotion"
+)
+
+-----------------------------------------------------------
+Dataset Structure
+
+Each sample contains
+
+{
+    "text": "...",
+    "label": 0-5
+}
+
+Label Mapping
+
+0 -> sadness
+1 -> joy
+2 -> love
+3 -> anger
+4 -> fear
+5 -> surprise
+
+-----------------------------------------------------------
+Task 1
+
+Load the dataset.
+
+Print
+
+Number of splits
+
+Number of samples
+
+Column names
+
+Memory usage (approx)
+
+-----------------------------------------------------------
+Task 2
+
+Build a DatasetCleaner class.
+
+The cleaner should perform all cleaning operations.
+
+Avoid writing many tiny functions.
+
+Design a reusable pipeline.
+
+-----------------------------------------------------------
+Task 3
+
+Normalize text.
+
+Convert
+
+"I LOVE NLP!!!"
+
+↓
+
+"i love nlp"
+
+-----------------------------------------------------------
+Task 4
+
+Remove
+
+Extra spaces
+
+Repeated tabs
+
+Repeated newlines
+
+Leading/trailing spaces
+
+-----------------------------------------------------------
+Task 5
+
+Remove duplicate samples.
+
+Duplicates should be detected using normalized text.
+
+-----------------------------------------------------------
+Task 6
+
+Detect invalid samples.
+
+Examples
+
+Missing text
+
+Empty text
+
+Whitespace-only text
+
+Invalid label
+
+Label outside [0,5]
+
+Store invalid rows separately.
+
+-----------------------------------------------------------
+Task 7
+
+Generate statistics.
+
+Compute
+
+Total samples
+
+Valid samples
+
+Invalid samples
+
+Duplicate count
+
+Average review length
+
+Median review length
+
+Maximum review length
+
+Minimum review length
+
+Average words/sample
+
+Vocabulary size
+
+-----------------------------------------------------------
+Task 8
+
+Build Label Statistics.
+
+Compute
+
+Number of samples per label
+
+Percentage per label
+
+Most common label
+
+Least common label
+
+-----------------------------------------------------------
+Task 9
+
+SQL Integration
+
+Store the cleaned dataset into SQLite.
+
+Create a table
+
+reviews
+
+Columns
+
+id
+
+text
+
+label
+
+word_count
+
+char_count
+
+-----------------------------------------------------------
+Task 10
+
+Execute SQL Queries.
+
+Find
+
+Top 20 longest reviews
+
+Top 20 shortest reviews
+
+Average words per label
+
+Average characters per label
+
+Label having longest average review
+
+Number of reviews longer than 100 words
+
+-----------------------------------------------------------
+Task 11
+
+Prepare Training Dataset.
+
+Create
+
+X
+
+↓
+
+Cleaned text
+
+y
+
+↓
+
+Integer labels
+
+-----------------------------------------------------------
+Task 12
+
+Randomly split
+
+Train
+
+Validation
+
+Test
+
+Ratio
+
+80
+
+10
+
+10
+
+-----------------------------------------------------------
+Task 13
+
+Create a PyTorch Dataset.
+
+Implement
+
+__len__()
+
+__getitem__()
+
+Do NOT use HuggingFace Trainer.
+
+-----------------------------------------------------------
+Task 14
+
+Create a PyTorch DataLoader.
+
+Batch size
+
+32
+
+Shuffle
+
+True
+
+-----------------------------------------------------------
+Task 15
+
+Print one batch.
+
+Example
+
+Batch Shape
+
+Labels
+
+Sample Text
+
+-----------------------------------------------------------
+Bonus
+
+1.
+
+Plot label distribution.
+
+2.
+
+Plot review length histogram.
+
+3.
+
+Export cleaned dataset
+
+CSV
+
+Parquet
+
+SQLite
+
+4.
+
+Build
+
+Pipeline.run()
+
+which executes every step automatically.
+
+5.
+
+Generate a cleaning report.
+
+Example
+
+------------------------------
+
+Original Samples
+
+16000
+
+Duplicates Removed
+
+135
+
+Invalid Samples
+
+17
+
+Average Words
+
+24.8
+
+Vocabulary Size
+
+38211
+
+Output Dataset
+
+15848
+
+------------------------------
+
+===========================================================
+Restrictions
+
+Do NOT use pandas cleaning functions for everything.
+
+Perform the important cleaning manually.
+
+Think like an AI engineer building a reusable preprocessing pipeline.
+
+===========================================================
+Expected Learning
+
+✓ HuggingFace Datasets
+
+✓ Python OOP
+
+✓ String Parsing
+
+✓ Dataset Cleaning
+
+✓ SQLite
+
+✓ SQL
+
+✓ Data Validation
+
+✓ PyTorch Dataset
+
+✓ DataLoader
+
+✓ AI Engineering Workflow
+
+===========================================================
+"""
