@@ -25,13 +25,8 @@ class DataLib:
         df["text"] = df["text"].str.replace(r"[^a-zA-Z0-9\s]","",regex=True)
 
         return df
-    
-    @staticmethod
-    def preprocess(df : pd.DataFrame) -> pd.DataFrame:
-        return df
-        
 
-class DataPreprocess:
+class DataCleaner:
     Train    : pd.DataFrame
     Test     : pd.DataFrame
     Validate : pd.DataFrame
@@ -164,8 +159,8 @@ class Database:
 
 Dataset = load_dataset("dair-ai/emotion")
 
-def main(DB : Database):
-    DPp : DataPreprocess = DataPreprocess()
+def main(DB : Database) -> None:
+    DPp : DataCleaner = DataCleaner()
     DPp.split_store(Dataset)
     DPp.dataset_info()
 

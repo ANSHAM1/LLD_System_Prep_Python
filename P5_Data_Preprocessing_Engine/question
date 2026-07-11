@@ -1,0 +1,417 @@
+/*
+======================================================================
+Day 2 - AI Engineering Track
+
+Difficulty : 9.2/10
+
+Estimated Time : 4-6 Hours
+
+Problem
+
+Dataset Tokenization & Vocabulary Engine
+
+======================================================================
+
+Background
+
+You have cleaned the dataset.
+
+The ML team now wants to train an NLP model.
+
+Raw text cannot be directly fed into a neural network.
+
+You are responsible for building the preprocessing engine that converts
+raw sentences into machine-readable tokens.
+
+Everything must be implemented in Python.
+
+No tokenizer libraries.
+
+======================================================================
+Dataset
+
+Use HuggingFace
+
+from datasets import load_dataset
+
+dataset = load_dataset("dair-ai/emotion")
+
+======================================================================
+Input
+
+Dataset contains
+
+text
+
+label
+
+Example
+
+{
+    "text" : "I am extremely happy today!",
+    "label": 1
+}
+
+======================================================================
+Task 1
+
+Load the dataset.
+
+Merge
+
+train
+
+validation
+
+test
+
+into one dataset.
+
+======================================================================
+Task 2
+
+Clean text.
+
+Requirements
+
+Lowercase
+
+Remove punctuation
+
+Remove multiple spaces
+
+Trim whitespace
+
+======================================================================
+Task 3
+
+Tokenization
+
+Implement your own tokenizer.
+
+Split text into words.
+
+Do NOT use
+
+nltk
+
+spacy
+
+transformers tokenizer
+
+sentencepiece
+
+======================================================================
+Task 4
+
+Vocabulary Builder
+
+Generate a vocabulary.
+
+Every unique token receives an integer ID.
+
+Example
+
+<PAD> -> 0
+<UNK> -> 1
+i -> 2
+love -> 3
+python -> 4
+
+Vocabulary should be ordered by
+
+Highest Frequency
+
+↓
+
+Alphabetical Order
+
+======================================================================
+Task 5
+
+Generate Statistics
+
+Total Sentences
+
+Total Tokens
+
+Unique Tokens
+
+Average Tokens per Sentence
+
+Maximum Sentence Length
+
+Minimum Sentence Length
+
+Top 50 Most Frequent Words
+
+Top 50 Least Frequent Words
+
+======================================================================
+Task 6
+
+Unknown Words
+
+Implement
+
+<UNK>
+
+Any unseen word must map to
+
+<UNK>
+
+======================================================================
+Task 7
+
+Encoding
+
+Convert every sentence
+
+↓
+
+List of Token IDs
+
+Example
+
+I love python
+
+↓
+
+[2,3,4]
+
+======================================================================
+Task 8
+
+Padding
+
+Pad every sequence to
+
+Length = 32
+
+Short sentences
+
+↓
+
+PAD
+
+Long sentences
+
+↓
+
+Truncate
+
+======================================================================
+Task 9
+
+Attention Mask
+
+Generate
+
+1
+
+↓
+
+Real Token
+
+0
+
+↓
+
+Padding
+
+Example
+
+Sentence
+
+[12,43,78,0,0]
+
+Mask
+
+[1,1,1,0,0]
+
+======================================================================
+Task 10
+
+SQLite
+
+Create tables
+
+Vocabulary
+
+----------------------
+
+token
+
+token_id
+
+frequency
+
+----------------------
+
+EncodedDataset
+
+----------------------
+
+sample_id
+
+label
+
+token_ids
+
+attention_mask
+
+sequence_length
+
+======================================================================
+Task 11
+
+SQL
+
+Answer
+
+Top 20 most frequent tokens
+
+Average sequence length
+
+Maximum sequence length
+
+Number of samples per label
+
+Vocabulary size
+
+======================================================================
+Task 12
+
+Build
+
+Vocabulary
+
+↓
+
+Encoder
+
+↓
+
+Decoder
+
+Decoder should reconstruct text from token IDs.
+
+Unknown IDs
+
+↓
+
+<UNK>
+
+======================================================================
+Task 13
+
+Create
+
+PyTorch Dataset
+
+Return
+
+input_ids
+
+attention_mask
+
+label
+
+======================================================================
+Task 14
+
+Create
+
+PyTorch DataLoader
+
+Batch Size
+
+32
+
+Shuffle
+
+True
+
+Print
+
+One Batch
+
+======================================================================
+Bonus
+
+1.
+
+Support
+
+Bigrams
+
+2.
+
+Support
+
+Trigrams
+
+3.
+
+Remove Stop Words
+(using your own stop-word list)
+
+4.
+
+Build TF-IDF scores
+(from scratch, without sklearn)
+
+5.
+
+Export Vocabulary
+
+JSON
+
+CSV
+
+SQLite
+
+6.
+
+Generate
+
+Top 100 Keywords
+
+for every emotion label.
+
+======================================================================
+Restrictions
+
+No tokenizer libraries.
+
+No sklearn CountVectorizer.
+
+No TF-IDF libraries.
+
+No sentencepiece.
+
+Build the pipeline yourself.
+
+======================================================================
+Learning Goals
+
+✓ HuggingFace Datasets
+
+✓ NLP Preprocessing
+
+✓ String Parsing
+
+✓ Vocabulary Construction
+
+✓ Frequency Analysis
+
+✓ SQL
+
+✓ PyTorch Dataset
+
+✓ DataLoader
+
+✓ AI Engineering Workflow
+
+======================================================================
+*/
